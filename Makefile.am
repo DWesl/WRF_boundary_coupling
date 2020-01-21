@@ -21,3 +21,6 @@ dist_doc_DATA = README.md README_CT.md README_GEOSChem.md LICENSE
 
 MOSTLYCLEANFILES = module_ct_lib.mod module_geos_lib.mod	\
     module_wrfchem_lib.mod
+
+@GENERATE_CHANGELOG_RULES@
+dist-hook: dist-ChangeLog

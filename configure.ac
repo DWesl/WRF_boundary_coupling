@@ -8,7 +8,7 @@ AC_INIT([WRF_boundary_coupling], [1.0-dev1],
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIRS([m4])
 AC_CONFIG_SRCDIR([module_CT_lib.f90])
-AM_INIT_AUTOMAKE([-Wall -Werror foreign dist-bzip2 dist-xz dist-zip])
+AM_INIT_AUTOMAKE([-Wall -Werror gnits dist-bzip2 dist-xz dist-zip])
 
 AX_IS_RELEASE([dash-version])
 AX_CHECK_ENABLE_DEBUG()
@@ -44,6 +44,9 @@ AS_IF([test ! '(' "x${ax_config_feature_geos_chem}" = xyes -o "x${ax_config_feat
 
 AM_CONDITIONAL([GEOSCHEM], [test "x${ax_config_feature_geos_chem}" = xyes])
 AM_CONDITIONAL([CARBONTRACKER], [test "x${ax_config_feature_carbontracker}" = xyes])
+
+# Generate changelog
+AX_GENERATE_CHANGELOG
 
 AC_CONFIG_FILES([Makefile])
 AC_OUTPUT
