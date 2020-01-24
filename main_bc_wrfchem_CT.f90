@@ -91,7 +91,8 @@ program main_bc_wrfchem_CT
 
   use netcdf
   use module_wrfchem_lib
-  use module_CT_lib        
+  use module_CT_lib
+  use mod_version_usage, only: process_args
 
   implicit none
 
@@ -145,6 +146,7 @@ program main_bc_wrfchem_CT
   print *,"*             tul5@psu.edu                           *"
   print *,"*                                                    *"
   print *,"******************************************************"
+  call process_args()
 
   !     read control variables
   read( 5, nml=control )

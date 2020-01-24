@@ -1,0 +1,48 @@
+module mod_version_usage
+  implicit none
+
+  private
+  public :: process_args
+  private :: print_usage
+  private :: print_version
+contains
+  subroutine process_args()
+    integer :: i, n_args
+    character(len=10) :: arg
+    logical :: call_print_usage = .FALSE., call_print_version = .FALSE.
+
+    n_args = command_argument_count()
+    if (n_args > 1) then
+       call_print_usage = .TRUE.
+    end if
+
+    do i=1,n_args
+       call get_command_argument(i, arg)
+       if (arg == "--version") then
+          call_print_version = .TRUE.
+       else if (arg == "--help") then
+          call_print_usage = .TRUE.
+       end if
+    end do
+
+    if (call_print_version) then
+       call print_version()
+    end if
+    if (call_print_usage) then
+       call print_usage()
+    end if
+    if (call_print_version .OR. call_print_usage) then
+       stop
+    end if
+  end subroutine process_args
+  subroutine print_usage()
+    character(len=64) :: arg
+    call get_command_argument(0, arg)
+    WRITE(*,*) "Usage: ", trim(arg), " < wrfchembc_namelist.input"
+  end subroutine print_usage
+  subroutine print_version()
+    character(len=64) :: arg
+    call get_command_argument(0, arg)
+    WRITE(*,*) trim(arg), " version @VERSION@"
+  end subroutine print_version
+end module mod_version_usage

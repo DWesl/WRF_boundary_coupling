@@ -48,5 +48,5 @@ AM_CONDITIONAL([CARBONTRACKER], [test "x${ax_config_feature_carbontracker}" = xy
 # Generate changelog
 AX_GENERATE_CHANGELOG
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile mod_version_usage.f03])
 AC_OUTPUT

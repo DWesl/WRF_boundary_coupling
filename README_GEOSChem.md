@@ -55,7 +55,7 @@ Original source of unknown date. Authors: Rainer Schmitz (University of Chile - 
     `Makefile`
   
    The namelist input data file for the program is structured as follows with examples:
-   ```fortran
+```fortran
    &control
    
    dir_wrf = '/data/wrfchem_data/'                   ! Directory containing the wrfinput and wrfbdy files
@@ -73,7 +73,7 @@ and may be omitted for options 2 and 3
 
    dir_global = '/data/global_data/'                 ! Global model data directory example
    fn_global  = 'ts20100607.nc'                      ! Global model data file name example
-   ```
+```
    
   
   
